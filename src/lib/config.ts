@@ -1,20 +1,36 @@
+// src/lib/config.ts
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://whopark.in';
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://app.whopark.in';
+
 export const siteConfig = {
   name: 'WHO PARK',
   tagline: 'Park Smart. Stay Connected.',
   altTagline: 'One Scan. Instant Connection.',
   description:
     'Smart QR-code-based vehicle communication and parking assistance platform. Resolve blocked cars, open windows, and headlights left ON without sharing personal phone numbers.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://whopark.in',
-  appUrl: process.env.NEXT_PUBLIC_APP_URL || 'https://app.whopark.in',
+  siteUrl,
+  appUrl,
   links: {
-    login: `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.whopark.in'}/login`,
-    register: `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.whopark.in'}/login`,
-    dashboard: `${process.env.NEXT_PUBLIC_APP_URL || 'https://app.whopark.in'}/dashboard`,
+    login: `${appUrl}/login`,
+    register: `${appUrl}/login`,
+    dashboard: `${appUrl}/dashboard`,
+    playStore:
+      process.env.NEXT_PUBLIC_PLAY_STORE_URL || appUrl,
+    stickerOrder:
+      process.env.NEXT_PUBLIC_STICKER_ORDER_URL ||
+      '/contact?subject=Order%20Windshield%20QR%20Sticker%20(COD)',
+  },
+  media: {
+    youtubeDemoId: process.env.NEXT_PUBLIC_YOUTUBE_DEMO_ID || '',
+  },
+  highlights: {
+    activeTags: process.env.NEXT_PUBLIC_ACTIVE_TAGS_LABEL || 'FREE',
+    rating: process.env.NEXT_PUBLIC_RATING_LABEL || '5.0 ★',
   },
   contact: {
-    email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'Configure via NEXT_PUBLIC_SUPPORT_EMAIL',
+    email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@whopark.in',
     phone: process.env.NEXT_PUBLIC_SUPPORT_PHONE || '',
-    location: process.env.NEXT_PUBLIC_OFFICE_LOCATION || 'India',
+    location: process.env.NEXT_PUBLIC_OFFICE_LOCATION || 'Pune, India',
   },
 };
 

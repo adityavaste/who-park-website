@@ -8,38 +8,59 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 space-y-6">
-      <h1 className="text-3xl sm:text-4xl font-black text-[#111111]">Privacy Policy</h1>
-      <p className="text-xs text-[#777777]">Last updated: 2026</p>
+    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] py-10 sm:py-14">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="bg-white rounded-[32px] border border-neutral-200/90 p-7 sm:p-10 space-y-6 text-sm sm:text-base text-neutral-600 leading-relaxed">
+          <div className="border-b border-neutral-100 pb-5">
+            <span className="inline-block bg-[#FFD600] text-[#111111] text-xs font-bold px-3 py-1 rounded-full">
+              Legal
+            </span>
+            <h1 className="mt-3 text-3xl sm:text-4xl font-bold text-[#111111]">Privacy Policy</h1>
+            <p className="mt-1 text-xs text-neutral-400">Effective Date: 2026</p>
+          </div>
 
-      <div className="bg-white border-2 border-[#111111] rounded-3xl p-6 sm:p-8 space-y-4 text-sm text-[#333333] leading-relaxed">
-        <p>
-          <strong>Who Park</strong> operates the website at {siteConfig.siteUrl} and the vehicle
-          alert application at {siteConfig.appUrl}.
-        </p>
-        <h2 className="text-lg font-black text-[#111111]">1. Information We Collect</h2>
-        <p>
-          When you register an account, we collect your Google account email address, name,
-          registered mobile number, and vehicle registration details so we can route vehicle
-          alerts to you.
-        </p>
-        <h2 className="text-lg font-black text-[#111111]">2. How Your Data Is Used</h2>
-        <p>
-          Your contact number is used to identify your owner account and deliver vehicle alerts.
-          Your personal phone number is not displayed publicly on your vehicle QR scan page.
-        </p>
-        <h2 className="text-lg font-black text-[#111111]">3. Device Permissions</h2>
-        <p>
-          Our mobile application may request camera access to scan QR codes, notification
-          permissions to deliver incoming vehicle alerts, and microphone permissions if you choose
-          to answer a voice call.
-        </p>
-        <h2 className="text-lg font-black text-[#111111]">4. Account Deletion &amp; Contact</h2>
-        <p>
-          To request account or vehicle data deletion, contact us at{' '}
-          <strong>{siteConfig.contact.email}</strong>.
-        </p>
-      </div>
+          <p>
+            <strong>Who Park</strong> operates the official website at{' '}
+            <strong className="text-[#111111]">{siteConfig.siteUrl}</strong> and the vehicle
+            communication app at <strong className="text-[#111111]">{siteConfig.appUrl}</strong>.
+          </p>
+
+          <div className="space-y-1.5">
+            <h2 className="text-lg font-bold text-[#111111]">1. Information We Collect</h2>
+            <p>
+              When you register on Who Park, we collect your Google account email address, display
+              name, mobile contact number, and registered vehicle details to deliver parking
+              alerts.
+            </p>
+          </div>
+
+          <div className="space-y-1.5">
+            <h2 className="text-lg font-bold text-[#111111]">2. How Information Is Used</h2>
+            <p>
+              Your mobile number is used to identify your account and route incoming alerts to
+              you. Your personal phone number is never displayed publicly on your vehicle&apos;s
+              QR scan page.
+            </p>
+          </div>
+
+          <div className="space-y-1.5">
+            <h2 className="text-lg font-bold text-[#111111]">3. App Permissions</h2>
+            <p>
+              The Who Park mobile app may request camera access to scan QR codes, push
+              notification permissions to deliver real-time vehicle alerts, and microphone access
+              only when you choose to answer an in-app voice call.
+            </p>
+          </div>
+
+          <div className="space-y-1.5">
+            <h2 className="text-lg font-bold text-[#111111]">4. Data Deletion &amp; Contact</h2>
+            <p>
+              To request deletion of your account or registered vehicle records, email us at{' '}
+              <strong className="text-[#111111]">{siteConfig.contact.email}</strong>.
+            </p>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
