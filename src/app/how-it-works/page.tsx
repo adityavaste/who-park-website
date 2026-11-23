@@ -1,8 +1,5 @@
-'use client';
-
-import { useState } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   UserCheck,
   ShieldCheck,
@@ -13,260 +10,210 @@ import {
   ScanLine,
   MousePointerClick,
   BellRing,
-  ArrowUpRight,
-  CheckCircle2,
+  ArrowRight,
+  Package,
 } from 'lucide-react';
 import { siteConfig } from '@/lib/config';
 
+export const metadata: Metadata = {
+  title: 'How It Works',
+  description:
+    'Step-by-step guide to creating your Who Park QR sticker and receiving instant vehicle alerts.',
+};
+
 const ownerSteps = [
   {
-    num: '01',
+    num: '1',
     icon: UserCheck,
-    title: 'Account Registration',
-    desc: 'Open Who Park and sign in with your Google account in a single tap—no new password required.',
-    badge: 'Google Sign-In',
+    title: 'Sign in with Google',
+    desc: 'Create your free Who Park account in one tap using your Google account.',
   },
   {
-    num: '02',
+    num: '2',
     icon: ShieldCheck,
-    title: 'Email & Contact Linking',
-    desc: 'Your email is verified automatically via Google, and you link your mobile number once to activate owner alerts.',
-    badge: 'One-Time Setup',
+    title: 'Link your mobile number once',
+    desc: 'Add your phone number privately in your profile so alerts reach you—it is never shown publicly.',
   },
   {
-    num: '03',
+    num: '3',
     icon: Car,
-    title: 'Vehicle Registration',
-    desc: 'Enter your vehicle license plate number and make/model inside your Owner Garage dashboard.',
-    badge: 'Plate Binding',
+    title: 'Add your vehicle plate',
+    desc: 'Enter your car or bike number inside your Who Park garage.',
   },
   {
-    num: '04',
+    num: '4',
     icon: QrCode,
-    title: 'Unique QR Code Generation',
-    desc: 'Who Park automatically generates a dedicated QR tag linked exclusively to your registered vehicle.',
-    badge: 'Instant Mint',
+    title: 'Get your unique QR code',
+    desc: 'Who Park automatically creates a permanent QR tag linked to your vehicle.',
   },
   {
-    num: '05',
+    num: '5',
     icon: Printer,
-    title: 'Download & Print Sticker',
-    desc: 'Download the high-contrast QR PNG or open the printable Windshield Sticker Card from your dashboard.',
-    badge: 'Print Ready',
+    title: 'Print or order your sticker',
+    desc: 'Download and print the free windshield card at home, or order a weatherproof decal with COD.',
   },
   {
-    num: '06',
+    num: '6',
     icon: Sticker,
-    title: 'Mount on Windshield',
-    desc: 'Place the sticker inside the lower corner of your front windshield where passersby can easily scan it.',
-    badge: 'Windshield Placement',
+    title: 'Place it on your windshield',
+    desc: 'Stick it inside the lower corner of your front glass where anyone can easily scan it.',
   },
 ];
 
 const visitorSteps = [
   {
-    num: '07',
+    num: '7',
     icon: ScanLine,
-    title: 'Visitor Scans the QR Code',
-    desc: 'Someone notices an issue and scans your windshield sticker using any standard smartphone camera—no app download needed.',
-    badge: 'Zero App Friction',
+    title: 'Person scans your QR code',
+    desc: 'Anyone near your car scans the sticker with their normal phone camera—no app download needed.',
   },
   {
-    num: '08',
+    num: '8',
     icon: MousePointerClick,
-    title: 'Selects the Alert Reason',
-    desc: 'Your vehicle plate appears (with your phone number completely hidden), and the visitor taps the exact alert reason.',
-    badge: 'One-Tap Presets',
+    title: 'Taps the alert reason',
+    desc: 'They see your vehicle number (never your phone number) and tap why they need you—like Blocked Exit or Lights ON.',
   },
   {
-    num: '09',
+    num: '9',
     icon: BellRing,
-    title: 'Owner Receives Notification',
-    desc: 'Your phone rings immediately with the alert details, and you can send a quick reply right back to the visitor.',
-    badge: 'Live Acknowledgement',
+    title: 'Your phone rings & you reply',
+    desc: 'You get an instant alert on your phone and can reply in one tap ("Coming in 2 mins!").',
   },
 ];
 
 export default function HowItWorksPage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'owner' | 'visitor'>('all');
-
-  const displayedSteps =
-    activeTab === 'owner'
-      ? ownerSteps
-      : activeTab === 'visitor'
-      ? visitorSteps
-      : [...ownerSteps, ...visitorSteps];
-
   return (
-    <div className="bg-[#050505] text-white selection:bg-[#FFD600] selection:text-[#050505]">
-      {/* Dark Spatial Header */}
-      <section className="relative pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[460px] bg-[radial-gradient(ellipse_at_top,rgba(255,214,0,0.18),transparent_70%)] blur-3xl"
-        />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs font-medium text-neutral-300">
-            Complete End-to-End Flow
+    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] selection:bg-[#FFD600] selection:text-[#111111]">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-10">
+        {/* Header Card */}
+        <section className="bg-white rounded-[32px] border border-neutral-200/90 p-6 sm:p-10 text-center space-y-4">
+          <span className="inline-block bg-[#FFD600] text-xs font-bold px-3.5 py-1 rounded-full">
+            Simple Step-by-Step Guide
           </span>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-semibold tracking-[-0.04em] leading-[1.02]">
-            From Setup to{' '}
-            <span className="bg-gradient-to-r from-[#FFD600] via-[#FFF2A6] to-[#FFD600] bg-clip-text text-transparent">
-              First Scan.
-            </span>
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+            How Who Park Works
           </h1>
-
-          <p className="text-base sm:text-lg text-neutral-400 max-w-2xl mx-auto">
-            See every step of how vehicle owners create their windshield QR tag and how visitors
-            send instant alerts without ever seeing a phone number.
+          <p className="text-sm sm:text-base text-neutral-600 max-w-xl mx-auto">
+            From setting up your windshield sticker in 60 seconds to receiving your first private
+            parking alert.
           </p>
 
-          {/* Visual Showcase Strip */}
-          <div className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-            <div className="relative rounded-[28px] overflow-hidden border border-white/15 h-60 group">
+          {/* Two Visual Photo Cards */}
+          <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <div className="relative rounded-2xl overflow-hidden h-52 bg-[#111111]">
               <img
                 src="/images/qr-decal-macro.jpg"
-                alt="Macro view of Who Park windshield QR decal"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="Who Park Windshield QR Sticker"
+                className="w-full h-full object-cover opacity-80"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#FFD600]">
-                  Part 1 • For Vehicle Owners
-                </span>
-                <p className="text-lg font-semibold text-white mt-0.5">
-                  Register plate &amp; mount your windshield QR decal
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="text-[11px] font-bold uppercase text-[#FFD600]">Part 1 • For Owners</p>
+                <p className="text-sm font-bold">Stick your QR decal on the windshield</p>
               </div>
             </div>
 
-            <div className="relative rounded-[28px] overflow-hidden border border-white/15 h-60 group">
+            <div className="relative rounded-2xl overflow-hidden h-52 bg-[#111111]">
               <img
                 src="/images/scan-windshield.jpg"
-                alt="Smartphone scanning windshield QR decal"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="Scanning Who Park QR code with smartphone"
+                className="w-full h-full object-cover opacity-80"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#FFD600]">
-                  Part 2 • For Passersby
-                </span>
-                <p className="text-lg font-semibold text-white mt-0.5">
-                  Scan with any camera &amp; notify the owner in seconds
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="text-[11px] font-bold uppercase text-[#FFD600]">Part 2 • For Anyone</p>
+                <p className="text-sm font-bold">Scan with any phone camera to alert the driver</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Light Interactive Step-by-Step Section */}
-      <section className="bg-white text-[#0A0A0B] py-24 lg:py-32 rounded-t-[40px] -mt-6 relative z-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Filter Pills */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-10 border-b border-neutral-200">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                9-Step Complete Journey
-              </h2>
-              <p className="text-sm text-neutral-500 mt-1">
-                Filter by owner setup or visitor scan flow.
-              </p>
-            </div>
-
-            <div className="inline-flex items-center gap-1 bg-[#F5F5F7] p-1.5 rounded-full self-start">
-              {[
-                { id: 'all', label: 'All 9 Steps' },
-                { id: 'owner', label: 'Owner Setup (01–06)' },
-                { id: 'visitor', label: 'Visitor Scan (07–09)' },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition ${
-                    activeTab === tab.id
-                      ? 'bg-[#0A0A0B] text-white shadow-xs'
-                      : 'text-neutral-600 hover:text-[#0A0A0B]'
-                  }`}
+        {/* Owner Setup Steps */}
+        <section className="space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold px-1">
+            Part 1: Setting up your car (Steps 1 to 6)
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {ownerSteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={step.num}
+                  className="bg-white rounded-2xl border border-neutral-200/90 p-6 flex items-start gap-4"
                 >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Steps List */}
-          <div className="mt-10 space-y-4">
-            <AnimatePresence mode="popLayout">
-              {displayedSteps.map((step) => {
-                const Icon = step.icon;
-                return (
-                  <motion.div
-                    layout
-                    key={step.num}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.25 }}
-                    className="rounded-3xl bg-[#F5F5F7] border border-neutral-200/70 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
-                  >
-                    <div className="flex items-start gap-4 sm:gap-5">
-                      <span className="w-11 h-11 rounded-2xl bg-[#0A0A0B] text-[#FFD600] font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                        {step.num}
-                      </span>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-[#0A0A0B]">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-neutral-600 mt-1.5 leading-relaxed max-w-2xl">
-                          {step.desc}
-                        </p>
-                      </div>
+                  <div className="w-10 h-10 rounded-xl bg-[#FFD600] text-[#111111] font-bold text-sm flex items-center justify-center shrink-0">
+                    {step.num}
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <Icon className="w-4 h-4 text-neutral-500" />
+                      <h3 className="text-base font-bold">{step.title}</h3>
                     </div>
-
-                    <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white border border-neutral-200/80 text-xs font-semibold text-[#0A0A0B] shrink-0 self-start sm:self-center">
-                      <Icon className="w-4 h-4 text-[#0A0A0B]" />
-                      <span>{step.badge}</span>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+        </section>
 
-          {/* Bottom CTA */}
-          <div className="mt-16 rounded-[36px] bg-[#0A0A0B] text-white p-10 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-2 text-center md:text-left">
-              <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#FFD600]">
-                <CheckCircle2 className="w-4 h-4" /> Free to Start
-              </div>
-              <h3 className="text-2xl sm:text-4xl font-semibold tracking-tight">
-                Ready to generate your QR sticker?
-              </h3>
-              <p className="text-sm text-neutral-400">
-                Sign in with Google and mount your decal in under a minute.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
-              <a
-                href={siteConfig.links.register}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFD600] hover:bg-[#ffe033] text-[#0A0A0B] font-semibold text-sm px-7 py-4 rounded-full transition"
-              >
-                Create Free QR Tag <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <Link
-                href="/pricing"
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 hover:bg-white/15 text-white font-medium text-sm px-7 py-4 rounded-full transition"
-              >
-                View Plans
-              </Link>
-            </div>
+        {/* Visitor Scan Steps */}
+        <section className="space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold px-1">
+            Part 2: When someone scans your sticker (Steps 7 to 9)
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {visitorSteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={step.num}
+                  className="bg-white rounded-2xl border border-neutral-200/90 p-6 space-y-3"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="w-9 h-9 rounded-xl bg-[#111111] text-[#FFD600] font-bold text-sm flex items-center justify-center">
+                      {step.num}
+                    </span>
+                    <Icon className="w-5 h-5 text-neutral-400" />
+                  </div>
+                  <h3 className="text-base font-bold">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-1.5 text-center sm:text-left">
+            <h3 className="text-2xl font-bold">Ready to get started?</h3>
+            <p className="text-sm text-neutral-400">
+              Create your free digital QR now or order a physical windshield sticker (COD).
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+            <a
+              href={siteConfig.links.register}
+              className="inline-flex items-center justify-center gap-2 bg-[#FFD600] hover:bg-[#f5cd00] text-[#111111] font-bold text-xs sm:text-sm px-6 py-4 rounded-2xl transition"
+            >
+              <span>Get Free Digital QR</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              href="/contact?subject=Order%20Windshield%20QR%20Sticker%20(COD)"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold text-xs sm:text-sm px-6 py-4 rounded-2xl transition"
+            >
+              <Package className="w-4 h-4 text-[#FFD600]" />
+              <span>Order Sticker (COD)</span>
+            </Link>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
