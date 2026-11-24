@@ -83,10 +83,10 @@ const visitorSteps = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] selection:bg-[#FFD600] selection:text-[#111111]">
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-10">
-        {/* Header Card */}
-        <section className="bg-white rounded-[32px] border border-neutral-200/90 p-6 sm:p-10 text-center space-y-4">
+    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] overflow-x-hidden selection:bg-[#FFD600] selection:text-[#111111]">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-0 pb-10 sm:py-14 space-y-10">
+        {/* Header Card: Flush on Mobile, Boxed on Laptop */}
+        <section className="-mx-4 sm:mx-0 bg-white sm:rounded-[32px] border-b sm:border border-neutral-200/90 px-5 pt-6 pb-8 sm:p-10 text-center space-y-4">
           <span className="inline-block bg-[#FFD600] text-xs font-bold px-3.5 py-1 rounded-full">
             Simple Step-by-Step Guide
           </span>
@@ -189,7 +189,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <section className="bg-[#111111] text-white rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <h3 className="text-2xl font-bold">Ready to get started?</h3>
             <p className="text-sm text-neutral-400">

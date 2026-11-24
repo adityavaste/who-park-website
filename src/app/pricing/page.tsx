@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { Check, Plus, ArrowRight } from 'lucide-react';
 import { pricingPlans, siteConfig } from '@/lib/config';
 
@@ -34,10 +33,10 @@ export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] selection:bg-[#FFD600] selection:text-[#111111]">
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-12">
-        {/* Header */}
-        <section className="text-center max-w-2xl mx-auto space-y-3">
+    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] overflow-x-hidden selection:bg-[#FFD600] selection:text-[#111111]">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-0 pb-10 sm:py-14 space-y-10 sm:space-y-12">
+        {/* Header: Flush White Banner on Mobile, Centered Header on Laptop */}
+        <section className="-mx-4 sm:mx-0 bg-white sm:bg-transparent border-b sm:border-0 border-neutral-200/90 px-5 pt-6 pb-8 sm:p-0 text-center max-w-2xl sm:mx-auto space-y-3">
           <span className="inline-block bg-[#FFD600] text-xs font-bold px-3.5 py-1 rounded-full">
             Simple &amp; Honest Pricing
           </span>
@@ -184,7 +183,7 @@ export default function PricingPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="bg-[#FFD600] rounded-[32px] p-8 sm:p-10 text-center space-y-4">
+        <section className="bg-[#FFD600] rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 text-center space-y-4">
           <h2 className="text-2xl sm:text-3xl font-bold">Start for free in 60 seconds</h2>
           <p className="text-xs sm:text-sm text-[#111111]/80 max-w-md mx-auto">
             Register your vehicle and download your printable windshield QR card today.

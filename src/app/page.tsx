@@ -91,11 +91,11 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 pt-0 pb-8 sm:py-12 space-y-10">
         {/* =================================================================
-            1. ULTRA-SIMPLE HERO: EXPLAINED IN 3 SECONDS
+            1. ULTRA-SIMPLE HERO: FLUSH ON MOBILE, BOXED CARD ON LAPTOP
         ================================================================= */}
-        <section className="bg-white rounded-[32px] border border-neutral-200/90 p-6 sm:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
+        <section className="-mx-4 sm:mx-0 bg-white sm:rounded-[32px] border-b sm:border border-neutral-200/90 px-5 pt-6 pb-8 sm:p-10 sm:shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Plain, Effortless Story */}
             <div className="lg:col-span-7 space-y-6">

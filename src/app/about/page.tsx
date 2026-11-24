@@ -34,10 +34,10 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] selection:bg-[#FFD600] selection:text-[#111111]">
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-10">
-        {/* Hero Card */}
-        <section className="bg-white rounded-[32px] border border-neutral-200/90 p-6 sm:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
+    <div className="min-h-screen bg-[#FAF9F5] text-[#111111] overflow-x-hidden selection:bg-[#FFD600] selection:text-[#111111]">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-0 pb-10 sm:py-14 space-y-10">
+        {/* Hero Card: Flush on Mobile, Boxed on Laptop */}
+        <section className="-mx-4 sm:mx-0 bg-white sm:rounded-[32px] border-b sm:border border-neutral-200/90 px-5 pt-6 pb-8 sm:p-10 sm:shadow-[0_4px_24px_rgba(0,0,0,0.03)] space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-neutral-200 text-xs font-semibold">
             <PhoneOff className="w-3.5 h-3.5 text-[#16A34A]" />
             <span>Our Story &amp; Mission</span>
@@ -56,7 +56,7 @@ export default function AboutPage() {
             your personal phone number on the glass.
           </p>
 
-          <div className="relative rounded-3xl overflow-hidden h-64 sm:h-80 bg-[#111111]">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden h-64 sm:h-80 bg-[#111111]">
             <img
               src="/images/smart-parking-courtyard.jpg"
               alt="Modern residential parking courtyard"
@@ -75,7 +75,7 @@ export default function AboutPage() {
         </section>
 
         {/* Story Split */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-[32px] border border-neutral-200/90 p-6 sm:p-10">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-[28px] sm:rounded-[32px] border border-neutral-200/90 p-6 sm:p-10">
           <div className="lg:col-span-7 space-y-4">
             <h2 className="text-2xl sm:text-3xl font-bold">Why we built Who Park</h2>
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
@@ -153,7 +153,7 @@ export default function AboutPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="bg-[#111111] text-white rounded-[32px] p-8 sm:p-12 text-center space-y-5">
+        <section className="bg-[#111111] text-white rounded-[28px] sm:rounded-[32px] p-8 sm:p-12 text-center space-y-5">
           <h2 className="text-2xl sm:text-4xl font-bold">Ready to put Who Park on your car?</h2>
           <p className="text-sm sm:text-base text-neutral-400 max-w-md mx-auto">
             Create your free QR sticker in less than a minute.
