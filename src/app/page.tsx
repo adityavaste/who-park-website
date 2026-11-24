@@ -79,7 +79,7 @@ export default function HomePage() {
               href={siteConfig.links.login}
               className="text-xs sm:text-sm font-semibold text-neutral-700 hover:text-[#111111] px-3 py-2"
             >
-              Login
+             App Login
             </a>
             <a
               href={siteConfig.links.register}
