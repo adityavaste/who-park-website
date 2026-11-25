@@ -65,25 +65,28 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#111111] flex flex-col justify-between overflow-x-hidden selection:bg-[#FFD600] selection:text-[#111111]">
       {/* Simple Top Bar */}
+     
       <header className="bg-white border-b border-neutral-200/80 sticky top-0 z-30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="w-9 h-9 rounded-xl bg-[#FFD600] text-[#111111] flex items-center justify-center">
-              <QrCode className="w-5 h-5" strokeWidth={2.5} />
+        <div className="max-w-5xl mx-auto px-3.5 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FFD600] text-[#111111] flex items-center justify-center shrink-0">
+              <QrCode className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
             </span>
-            <span className="font-bold text-lg tracking-tight">WHO PARK</span>
+            <span className="font-bold text-base sm:text-lg tracking-tight whitespace-nowrap">
+              WHO PARK
+            </span>
           </Link>
 
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href={siteConfig.links.login}
-              className="text-xs sm:text-sm font-semibold text-neutral-700 hover:text-[#111111] px-3 py-2"
+              className="text-xs sm:text-sm font-semibold text-neutral-700 hover:text-[#111111] px-2 py-1.5 whitespace-nowrap"
             >
-             App Login
+              Login
             </a>
             <a
               href={siteConfig.links.register}
-              className="bg-[#FFD600] hover:bg-[#f5cd00] text-[#111111] text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full transition"
+              className="bg-[#FFD600] hover:bg-[#f5cd00] text-[#111111] text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full transition whitespace-nowrap"
             >
               Get Free Sticker
             </a>
@@ -104,9 +107,9 @@ export default function HomePage() {
                 <span>No Phone Number Needed</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12] text-[#111111]">
+              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12] text-[#111111] ">
                 Car blocking your way?{' '}
-                <span className="bg-[#FFD600] px-2.5 py-0.5 rounded-xl inline-block">
+                <span className="bg-[#FFD600] px-1.5 py-0.5 rounded-xl inline-block">
                   Scan &amp; tell the driver.
                 </span>
               </h1>
